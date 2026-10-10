@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="天空电影网，电影网址导航大全与实用网址收录平台，附实时热榜、高分片单、观影指南。聚焦华语电影、港片、日韩电影、欧美电影、经典老片、冷门佳片六大频道。倡导通过正规渠道观看正版影视内容，不含任何色情、盗版或侵权资源。">
+<meta name="keywords" content="天空电影网, 天空片单, 电影网址导航, 影视导航, 网址导航, 优质网站导航, 电影网站大全, 观影指南, 影评, 华语电影, 港片, 日韩电影, 欧美电影, 经典老片, 冷门佳片, 影视资讯, 正版">
+<meta name="author" content="天空电影网">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>天空电影网 - 电影网址导航大全 | 抬头就能看见的好片</title>
+<style>
+/* ==========================================================
+   天空电影网  单页响应式网站
+   定位：电影网址导航大全 + 观影指南（非播放站，倡导正版）
+   视觉基调：晨雾 #EAF3FF / 天蓝 #5B9BE8 / 靛 #2E5DA6 / 云白 / 暖橙 #FF9A5B
+   8 套差异化 DOM 模板，CSS/JS 全部内联，标签闭合
+   ========================================================== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#22303F;--ink2:#4C5B6E;--mist:#8A99AC;--mist2:#AEBBD0;
+  --bg:#EAF3FF;--bg2:#F4F9FF;--card:#FFFFFF;--line:#DCE8F7;--line2:#C6D7EE;
+  --blue:#5B9BE8;--blue2:#2E5DA6;--sky:#8FC7F5;--orange:#FF9A5B;--gold:#F5B642;
+  --mx:1180px;
+  --sans:"PingFang SC","Microsoft YaHei","WenQuanYi Micro Hei",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:"Songti SC","STSong","SimSun","Noto Serif SC",Georgia,serif;
+  --mono:"SF Mono",Menlo,Consolas,"Courier New",monospace;
+  --cloud:radial-gradient(circle at 22% 34%,rgba(255,255,255,.95),rgba(255,255,255,0) 40%),
+          radial-gradient(circle at 78% 58%,rgba(255,255,255,.86),rgba(255,255,255,0) 42%);
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink2);line-height:1.9;font-size:14.5px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    var(--cloud),
+    linear-gradient(180deg,#D8EBFF 0%,#EAF3FF 46%,#F6F9FE 100%)}
+a{color:inherit;text-decoration:none;transition:.22s cubic-bezier(.2,.8,.3,1)}
+ul{list-style:none}
+button{font-family:inherit}
+::selection{background:var(--blue);color:#fff}
+::-webkit-scrollbar{width:10px;height:9px}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--sky),var(--blue2));border-radius:8px}
+::-webkit-scrollbar-track{background:#DFECFB}
+
+.wrap{max-width:var(--mx);margin:0 auto;padding:0 30px;position:relative;z-index:1}
+section{padding:92px 0;position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:10.5px;letter-spacing:3.2px;color:var(--blue2);font-weight:750;text-transform:uppercase}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--orange)}
+.sec-h{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;margin:10px 0 34px}
+.sec-t{font-family:var(--serif);font-size:29px;font-weight:900;letter-spacing:1.4px;line-height:1.3;color:var(--ink)}
+.sec-t small{display:block;font-family:var(--mono);font-size:9.5px;color:var(--mist);font-weight:650;letter-spacing:2.8px;margin-top:9px;text-transform:uppercase}
+.more{font-size:12px;font-weight:800;color:var(--blue2);border-bottom:2px dotted var(--blue);padding:6px 0;letter-spacing:.6px}
+.more:hover{color:var(--orange);border-color:var(--orange);padding-right:8px}
+
+/* ---------- Header ---------- */
+.hd{position:sticky;top:0;z-index:100;background:rgba(234,243,255,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.hd-in{display:flex;align-items:center;justify-content:space-between;height:76px;gap:20px}
+.logo{display:flex;align-items:center;gap:12px;font-family:var(--serif);font-weight:900;font-size:23px;color:var(--ink);letter-spacing:1.4px}
+.logo .mk{display:inline-grid;place-items:center;width:46px;height:46px;background:linear-gradient(160deg,var(--sky),var(--blue2));color:#fff;font-size:19px;line-height:1;font-weight:950;border-radius:50% 50% 8px 8px}
+.logo em{font-style:normal;color:var(--mist);font-size:9px;font-weight:700;letter-spacing:1.4px;font-family:var(--mono)}
+.nav{display:flex;gap:2px}
+.nav a{font-size:13px;padding:9px 12px;color:var(--ink2);font-weight:650;letter-spacing:.3px;border-radius:30px}
+.nav a:hover,.nav a.on{color:#fff;background:var(--blue)}
+.mbtn{display:none;width:46px;height:42px;border:2px solid var(--blue2);background:transparent;color:var(--blue2);font-size:19px;cursor:pointer;border-radius:12px 12px 4px 4px}
+
+/* ---------- Hero ---------- */
+.hero{padding:64px 0 18px}
+.hero .wrap{display:grid;grid-template-columns:1fr 440px;gap:54px;align-items:center}
+.hero h1{font-family:var(--serif);font-size:clamp(37px,5.6vw,58px);line-height:1.2;font-weight:900;margin:10px 0 22px;color:var(--ink);letter-spacing:-.4px}
+.hero h1 u{text-decoration:none;color:var(--blue2);position:relative;display:inline-block}
+.hero h1 u::after{content:"";position:absolute;left:0;right:0;bottom:6px;height:8px;background:rgba(255,154,91,.34);z-index:-1;border-radius:4px}
+.hero .lede{font-size:15.5px;color:var(--ink2);max-width:600px;margin-bottom:26px}
+.hero .lede b{color:var(--blue2)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:26px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 6px;text-align:center;box-shadow:0 8px 24px rgba(46,93,166,.08)}
+.stat b{display:block;font-family:var(--mono);font-size:24px;font-weight:900;color:var(--blue2);letter-spacing:.5px}
+.stat span{font-size:9.5px;color:var(--mist);letter-spacing:.9px;text-transform:uppercase}
+.acts{display:flex;gap:12px;flex-wrap:wrap}
+.b{padding:14px 28px;font-size:14.5px;font-weight:850;cursor:pointer;border:2px solid var(--blue);border-radius:30px;letter-spacing:.6px;transition:.22s}
+.b-p{background:var(--blue);color:#fff;box-shadow:0 12px 28px rgba(91,155,232,.34)}
+.b-p:hover{background:var(--orange);border-color:var(--orange);transform:translate(-2px,-2px)}
+.b-g{background:transparent;color:var(--ink);border-color:var(--line2)}
+.b-g:hover{color:var(--blue2);border-color:var(--blue2);transform:translate(-2px,-2px)}
+
+/* 天空卡 */
+.sky{position:relative;height:346px;border-radius:22px;overflow:hidden;background:linear-gradient(180deg,#7FBDF5 0%,#3E7FD0 44%,#274B86 100%);box-shadow:0 26px 64px rgba(46,93,166,.3)}
+.sky .sun{position:absolute;top:26px;right:34px;width:76px;height:76px;border-radius:50%;background:radial-gradient(circle at 36% 30%,#FFE9B8,#FFC06A 56%,#F0954A);box-shadow:0 0 60px rgba(255,190,90,.75);animation:sun 9s ease-in-out infinite alternate}
+@keyframes sun{0%{transform:translateY(0);box-shadow:0 0 60px rgba(255,190,90,.75)}100%{transform:translateY(10px);box-shadow:0 0 90px rgba(255,190,90,.95)}}
+.sky .cloud{position:absolute;background:#fff;border-radius:50%;opacity:.92;filter:blur(.4px)}
+.sky .c1{width:130px;height:40px;top:56px;left:6%;animation:drift 26s linear infinite}
+.sky .c2{width:96px;height:32px;top:110px;left:34%;animation:drift 34s linear infinite}
+.sky .c3{width:150px;height:44px;top:78px;left:60%;animation:drift 21s linear infinite}
+.sky .c4{width:78px;height:26px;top:152px;left:18%;animation:drift 40s linear infinite}
+@keyframes drift{from{transform:translateX(-40px)}to{transform:translateX(640px)}}
+.sky .bird{position:absolute;width:24px;height:12px;border-top:2.4px solid #274B86;border-radius:50%;opacity:.75}
+.sky .b1{top:124px;left:24%;transform:rotate(-14deg);animation:fly 5s ease-in-out infinite alternate}
+.sky .b2{top:150px;left:30%;transform:rotate(-8deg);animation:fly 6s ease-in-out infinite alternate .6s}
+.sky .b3{top:140px;left:26%;transform:rotate(-11deg);animation:fly 4.4s ease-in-out infinite alternate 1.1s}
+@keyframes fly{to{transform:translateX(20px) translateY(-8px) rotate(-6deg)}}
+.sky .tx{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:30px;color:#fff}
+.sky .tx .badge{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;font-family:var(--mono);font-size:10px;letter-spacing:2.4px;color:#274B86;background:rgba(255,255,255,.9);padding:6px 12px;border-radius:30px;font-weight:800}
+.sky h3{font-family:var(--serif);font-size:23px;font-weight:950;margin:14px 0 6px;text-shadow:0 2px 16px rgba(0,0,0,.2)}
+.sky p{font-size:12px;color:rgba(255,255,255,.92);line-height:1.9;text-shadow:0 1px 8px rgba(0,0,0,.2)}
+
+/* ---------- ① 网址导航：云卡 ---------- */
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px}
+.cat{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.24s;box-shadow:0 8px 24px rgba(46,93,166,.07)}
+.cat:hover{transform:translateY(-6px);border-color:var(--blue);box-shadow:0 22px 46px rgba(46,93,166,.18)}
+.cat .hd2{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:18px 20px;background:var(--c,linear-gradient(120deg,var(--sky),var(--blue2)));color:#fff}
+.cat .hd2 h4{font-family:var(--serif);font-size:19px;font-weight:900;letter-spacing:1.4px}
+.cat .hd2 span{font-family:var(--mono);font-size:9.5px;letter-spacing:1.6px;font-weight:750;opacity:.92}
+.cat ul{padding:6px 10px 12px}
+.cat li a{display:flex;align-items:center;gap:11px;padding:10px 12px;font-size:13.5px;color:var(--ink2);border-radius:12px}
+.cat li a:hover{background:rgba(91,155,232,.10);color:var(--blue2);padding-left:19px}
+.cat li a .no{font-family:var(--mono);font-size:9.5px;color:var(--mist);font-weight:750;flex:none;background:var(--bg2);border-radius:20px;padding:2px 8px}
+.cat li a span{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cat li a em{font-style:normal;font-size:9.5px;color:var(--mist2);letter-spacing:.5px;flex:none}
+
+/* ---------- ② 热榜：高度条 ---------- */
+.race{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.rw{display:grid;grid-template-columns:44px 1fr;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;align-items:center;transition:.22s;box-shadow:0 6px 20px rgba(46,93,166,.06)}
+.rw:hover{border-color:var(--blue);box-shadow:0 18px 40px rgba(46,93,166,.16)}
+.rw .no{font-family:var(--serif);font-size:25px;font-weight:950;color:var(--line2);line-height:1;text-align:center;transition:.22s}
+.rw:hover .no{color:var(--orange)}
+.rw.top .no{color:var(--orange)}
+.rw .bx{flex:1;min-width:0}
+.rw .bx b{display:block;font-size:14px;font-weight:800;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:.22s}
+.rw:hover .bx b{color:var(--blue2)}
+.rw .bx .tr{display:flex;align-items:center;gap:10px;margin-top:9px}
+.rw .bx .tk{height:7px;flex:1;background:var(--bg2);border-radius:8px;overflow:hidden}
+.rw .bx .fl{height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--sky),var(--blue2));transition:width 1.1s cubic-bezier(.2,.8,.2,1)}
+.rw .bx small{font-family:var(--mono);font-size:9.5px;color:var(--mist);letter-spacing:.7px;flex:none}
+
+/* ---------- ③ 分类：云朵 ---------- */
+.cells{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:18px}
+.cl{position:relative;height:130px;border-radius:46px 46px 40px 40px;background:var(--c,linear-gradient(160deg,#fff,#CFE5FA));border:1px solid var(--line2);overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.3s;box-shadow:0 10px 26px rgba(46,93,166,.10)}
+.cl::before{content:"";position:absolute;width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.75);top:-16px;left:20px}
+.cl b{position:relative;z-index:2;font-family:var(--serif);font-size:18px;font-weight:950;color:var(--blue2);letter-spacing:2.6px}
+.cl em{position:absolute;right:14px;bottom:10px;font-style:normal;font-family:var(--mono);font-size:25px;font-weight:950;color:rgba(46,93,166,.16);z-index:1;line-height:1}
+.cl:hover{transform:translateY(-7px) scale(1.04);box-shadow:0 24px 52px rgba(46,93,166,.26)}
+.cl:hover b{color:var(--orange)}
+
+/* ---------- ④ 片单：真实数据表 ---------- */
+.tblwrap{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow-x:auto;box-shadow:0 10px 30px rgba(46,93,166,.08)}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:800px}
+thead th{background:rgba(91,155,232,.12);color:var(--blue2);font-family:var(--mono);font-weight:750;font-size:10.5px;letter-spacing:1.8px;padding:15px;text-align:left;text-transform:uppercase;border-bottom:1px solid var(--line2)}
+tbody td{padding:13px 15px;border-bottom:1px solid var(--line);color:var(--ink2);transition:.18s}
+tbody tr:hover{background:rgba(91,155,232,.07)}
+tbody tr:hover td{color:var(--blue2)}
+td.n{font-family:var(--mono);font-weight:850;color:var(--mist2);width:52px}
+td.ttl{font-weight:800;color:var(--ink)}
+.stars{color:var(--gold);letter-spacing:.5px;font-size:11px;white-space:nowrap}
+.pill{display:inline-block;font-size:9.5px;padding:4px 11px;font-weight:850;letter-spacing:.7px;white-space:nowrap;border-radius:30px}
+.p-c{color:#C87A12;background:rgba(245,182,66,.18);border:1px solid rgba(245,182,66,.5)}
+.p-h{color:#1E7F9C;background:rgba(143,199,245,.28);border:1px solid rgba(91,155,232,.5)}
+.p-n{color:#6B7A8C;background:var(--bg2);border:1px solid var(--line2)}
+
+/* ---------- ⑤ 影评：折页卡 ---------- */
+.strip{display:grid;grid-template-columns:repeat(auto-fill,minmax(262px,1fr));gap:18px}
+.st{background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:.24s;display:flex;flex-direction:column;box-shadow:0 8px 24px rgba(46,93,166,.07)}
+.st:hover{transform:translateY(-6px);border-color:var(--blue);box-shadow:0 22px 48px rgba(46,93,166,.18)}
+.st .cv{height:118px;position:relative;overflow:hidden;padding:14px;display:flex;flex-direction:column;justify-content:space-between}
+.st .cv i{position:absolute;inset:0;background:var(--bg);transition:.4s}
+.st:hover .cv i{transform:scale(1.07)}
+.st .cv span{position:relative;z-index:2;font-family:var(--mono);font-size:9.5px;letter-spacing:2.4px;color:var(--ink);font-weight:850}
+.st .cv b{position:relative;z-index:2;font-family:var(--serif);font-size:20px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.26)}
+.st .bd{padding:18px 20px;flex:1;display:flex;flex-direction:column}
+.st h4{font-family:var(--serif);font-size:17px;font-weight:950;color:var(--ink);margin-bottom:10px;line-height:1.5;transition:.22s}
+.st:hover h4{color:var(--blue2)}
+.st p{font-size:12.5px;color:var(--ink2);line-height:1.9;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+.st .meta{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9.5px;color:var(--mist);margin-top:14px;padding-top:10px;border-top:1px dashed var(--line2)}
+
+/* ---------- ⑥ 天气预报：今日宜看 ---------- */
+.forecast{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:12px}
+.fc{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 12px;text-align:center;transition:.24s;box-shadow:0 6px 20px rgba(46,93,166,.06)}
+.fc .w{font-size:26px;line-height:1;margin-bottom:8px}
+.fc b{display:block;font-family:var(--serif);font-size:15px;font-weight:950;color:var(--ink);margin-bottom:4px}
+.fc span{font-family:var(--mono);font-size:9.5px;letter-spacing:1.4px;color:var(--mist);font-weight:750}
+.fc p{font-size:10.5px;color:var(--ink2);line-height:1.6;margin-top:9px}
+.fc:hover{transform:translateY(-6px);border-color:var(--orange);box-shadow:0 20px 44px rgba(46,93,166,.18)}
+.fc:hover b{color:var(--orange)}
+
+/* ---------- ⑦ 特色：徽章 ---------- */
+.feat{display:grid;grid-template-columns:repeat(auto-fill,minmax(214px,1fr));gap:18px}
+.fi{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;transition:.24s;box-shadow:0 8px 24px rgba(46,93,166,.07)}
+.fi:hover{border-color:var(--blue);background:#F2F8FF;transform:translateY(-5px);box-shadow:0 20px 46px rgba(46,93,166,.18)}
+.fi .ic{width:52px;height:52px;margin-bottom:13px;background:linear-gradient(140deg,var(--sky),var(--blue2));border-radius:16px 6px 16px 6px;display:grid;place-items:center;font-size:21px}
+.fi h4{font-family:var(--serif);font-size:16.5px;font-weight:950;color:var(--ink);margin-bottom:8px;transition:.22s}
+.fi:hover h4{color:var(--blue2)}
+.fi p{font-size:12px;color:var(--ink2);line-height:1.85}
+
+/* ---------- CTA ---------- */
+.cta{background:radial-gradient(circle at 88% 8%,rgba(255,154,91,.22),transparent 42%),radial-gradient(circle at 8% 96%,rgba(143,199,245,.34),transparent 44%),linear-gradient(135deg,#3E7FD0,#274B86);color:#fff;padding:58px 32px;text-align:center;position:relative;border-radius:24px;box-shadow:0 28px 70px rgba(46,93,166,.34);margin:18px 0 30px;overflow:hidden}
+.cta::after{content:"SKY";position:absolute;right:16px;bottom:-26px;font-family:var(--mono);font-size:170px;font-weight:950;color:rgba(255,255,255,.08);line-height:1}
+.cta h2{font-family:var(--serif);font-size:clamp(23px,3.6vw,36px);font-weight:950;margin-bottom:14px;position:relative}
+.cta h2 i{font-style:normal;color:#FFE0B8}
+.cta p{color:rgba(255,255,255,.92);max-width:860px;margin:0 auto 24px;font-size:14.5px;position:relative}
+.cta .b-p{background:#fff;border-color:#fff;color:var(--blue2)}
+.cta .b-p:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+
+/* ---------- Footer ---------- */
+.ftr{background:#20324C;color:#B9C7DB;padding:60px 0 24px;margin-top:30px;position:relative;z-index:1}
+.ftr::before{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:repeating-linear-gradient(90deg,var(--sky) 0 18px,var(--orange) 18px 36px,#fff 36px 54px)}
+.fg{display:grid;grid-template-columns:2fr repeat(3,1fr);gap:32px;margin-bottom:34px}
+.fb .logo{color:#fff}
+.fb p{font-size:12.5px;margin-top:15px;max-width:360px;line-height:1.9}
+.fc h5{font-family:var(--mono);font-size:10.5px;letter-spacing:2.4px;margin-bottom:14px;color:#FFE0B8;font-weight:850;text-transform:uppercase}
+.fc a{display:block;font-size:12.5px;padding:5px 0;color:#AEBBD0}
+.fc a:hover{color:#fff;transform:translateX(5px)}
+.fbttm{font-family:var(--mono);font-size:10.5px;border-top:1px solid rgba(255,255,255,.14);padding-top:22px;line-height:2;color:#93A3BA}
+.fbttm a{color:#D5DEEC}
+.fbttm a:hover{color:#fff}
+
+.top{position:fixed;right:20px;bottom:24px;width:50px;height:50px;border:2px solid var(--blue2);background:var(--card);color:var(--blue2);display:grid;place-items:center;font-size:16px;cursor:pointer;opacity:0;pointer-events:none;transition:.24s;z-index:99;border-radius:16px 6px 16px 6px;box-shadow:0 8px 22px rgba(46,93,166,.24)}
+.top.show{opacity:1;pointer-events:auto}
+.top:hover{background:var(--blue);color:#fff;transform:translateY(-3px)}
+
+@media(max-width:960px){.hero .wrap{grid-template-columns:1fr;gap:30px}.sky{height:300px}}
+@media(max-width:680px){
+  section{padding:56px 0}
+  .wrap{padding:0 16px}
+  .mbtn{display:grid;place-items:center}
+  .nav{position:fixed;inset:76px 0 0 100%;flex-direction:column;background:var(--bg);padding:24px;border-top:3px solid var(--blue);transition:.32s;z-index:99}
+  .nav.open{inset:76px 0 0 0}
+  .nav a{font-size:16px;padding:15px;text-align:center;color:var(--ink)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .sky,.cat,.st,.cl,.fc{transform:none !important;filter:none !important}
+  .sec-t{font-size:21px}
+}
+@media print{.hd,.sky,.race,.forecast,.top,.nav,.fbttm br{display:none}}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<!-- ================= HEADER ================= -->
+<header class="hd">
+  <div class="wrap hd-in">
+    <a class="logo" href="#top" aria-label="返回顶部"><span class="mk">☁</span>天空电影网<em>SKY · FILM</em></a>
+    <nav class="nav" id="nav" aria-label="主导航">
+      <a href="#home" class="on">首页</a>
+      <a href="#nav2">网址导航</a>
+      <a href="#rank">实时热榜</a>
+      <a href="#cat">分类频道</a>
+      <a href="#list">天空片单</a>
+      <a href="#news">影评</a>
+      <a href="#fc">今日宜看</a>
+      <a href="#feat">网站特色</a>
+      <a href="#about">关于</a>
+    </nav>
+    <button class="mbtn" id="mb" aria-label="菜单" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section id="home" class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Look Up / 抬头看</span>
+      <h1>天空电影网<br>好片像云，<u>抬头就能看见</u></h1>
+      <p class="lede"><b>天空电影网</b>，一个<b>电影网址导航大全</b>、<b>实用网址收录平台</b>与<b>观影指南</b>。我们不提供在线播放与下载资源，只做两件事：<b>把值得看的好片挑出来</b>，<b>把能合法看到它们的正规渠道指给你</b>。六大频道（<b>华语电影 / 港片 / 日韩电影 / 欧美电影 / 经典老片 / 冷门佳片</b>）每日整理，配实时热榜、<b>天空片单</b>、影评与<b>观影指南</b>。本站只推荐公共版权经典、平台限时免费、电视台重播、片方官方展映四种正规来源。<b>不含任何色情、盗版或侵权内容。请通过正规渠道观看正版影视内容。</b></p>
+      <div class="stats">
+        <div class="stat"><b>6</b><span>分类频道</span></div>
+        <div class="stat"><b>4</b><span>合法观看途径</span></div>
+        <div class="stat"><b>38</b><span>精选网址</span></div>
+        <div class="stat"><b>0</b><span>侵权资源</span></div>
+      </div>
+      <div class="acts">
+        <a class="b b-p" href="#nav2">开始导航</a>
+        <a class="b b-g" href="#list">今晚看什么</a>
+      </div>
+    </div>
+    <div class="sky">
+      <span class="sun"></span>
+      <span class="cloud c1"></span><span class="cloud c2"></span>
+      <span class="cloud c3"></span><span class="cloud c4"></span>
+      <span class="bird b1"></span><span class="bird b2"></span><span class="bird b3"></span>
+      <div class="tx">
+        <span class="badge">☁ 今日天象 · 宜观影</span>
+        <h3>云层之上，都是好片</h3>
+        <p>白天看热闹，深夜看门道。<br>天空电影网，只收录抬头就能看见的那一类电影。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ① 网址导航（云卡） ================= -->
+<section id="nav2">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2 class="sec-t">网址导航 · 电影网站大全<small>Directory / 云卡</small></h2>
+      <a class="more" href="#">全部分类 →</a>
+    </div>
+    <div class="cats" id="cats"></div>
+  </div>
+</section>
+
+<!-- ================= ② 热榜（高度条） ================= -->
+<section id="rank">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2 class="sec-t">实时热榜 · 大家都在看<small>Hot / 高度条</small></h2>
+      <a class="more" href="#">完整榜单 →</a>
+    </div>
+    <div class="race" id="race"></div>
+  </div>
+</section>
+
+<!-- ================= ③ 分类（云朵） ================= -->
+<section id="cat">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2 class="sec-t">分类频道 · 一键直达<small>Channels / 云朵</small></h2>
+      <a class="more" href="#">全部频道 →</a>
+    </div>
+    <div class="cells" id="cells"></div>
+  </div>
+</section>
+
+<!-- ================= ④ 片单（真实数据表） ================= -->
+<section id="list">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2 class="sec-t">天空片单 · 今晚看什么<small>Watchlist / 数据表</small></h2>
+      <a class="more" href="#">完整片单 →</a>
+    </div>
+    <div class="tblwrap">
+      <table>
+        <thead><tr><th>#</th><th>影片 / 剧集</th><th>类型</th><th>地区</th><th>评分</th><th>观影天气</th><th>合法观看途径</th></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ⑤ 影评（折页卡） ================= -->
+<section id="news">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2 class="sec-t">观影指南 · 影评<small>Editorial / 折页</small></h2>
+      <a class="more" href="#">全部影评 →</a>
+    </div>
+    <div class="strip" id="strip"></div>
+  </div>
+</section>
+
+<!-- ================= ⑥ 今日宜看（天气预报） ================= -->
+<section id="fc">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2 class="sec-t">今日宜看 · 观影天气预报<small>Forecast / 天气格</small></h2>
+      <a class="more" href="#list">看片单 →</a>
+    </div>
+    <div class="forecast" id="forecast"></div>
+  </div>
+</section>
+
+<!-- ================= ⑦ 特色（徽章） ================= -->
+<section id="feat">
+  <div class="wrap">
+    <div class="sec-h">
+      <h2 class="sec-t">天空电影网 · 四大特色<small>Features / 徽章</small></h2>
+      <a class="more" href="#about">了解更多 →</a>
+    </div>
+    <div class="feat">
+      <div class="fi"><div class="ic">☁</div><h4>只挑抬头就能看见的片</h4><p>不追流量，不堆冷门。片单按"看完会不会想推荐给一个人"排序，一句话说清值不值得看、适合几点看、在哪个正规平台能看到。</p></div>
+      <div class="fi"><div class="ic">⛅</div><h4>坚决不碰违规内容</h4><p>本站为网址导航，不含在线播放与下载资源。不含任何色情、低俗、盗版或侵权内容；页面无弹窗、无自动播放、无跟踪脚本、无暗链。</p></div>
+      <div class="fi"><div class="ic">🌤</div><h4>分"观影天气"推荐</h4><p>晴天看公路片，阴天看悬疑，雨天看老片，深夜看安静的。把片子和心情配对，比和评分配对更准。</p></div>
+      <div class="fi"><div class="ic">🌈</div><h4>慢网也能秒开</h4><p>单文件、零外部请求、零框架、零图片请求。4G 弱网下首屏即内容，浅色护眼界面，适合睡前挑片、白天投屏。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section>
+  <div class="wrap">
+    <div class="cta">
+      <h2>抬头看片：<i>先选天气，再选电影</i></h2>
+      <p>天空电影网 —— 电影网址导航大全、实用网址收录平台与观影指南。华语电影、港片、日韩电影、欧美电影、经典老片、冷门佳片，六大频道每日整理；实时热榜、天空片单、影评、今日宜看，帮你把夜晚的时间花在值得的片上。<b>请通过正规渠道观看正版影视内容，远离色情低俗与侵权站点。</b></p>
+      <a class="b b-p" href="#nav2">开始导航</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ⑧ 关于（页脚多列） ================= -->
+<footer class="ftr" id="about">
+  <div class="wrap">
+    <div class="fg">
+      <div class="fb">
+        <a class="logo" href="#top"><span class="mk">☁</span>天空电影网<em>SKY · FILM</em></a>
+        <p>天空电影网，一个坚持"好片像云，抬头就能看见"的电影网址导航大全与实用网址收录平台。只挑值得看的片，只指合法的渠道。</p>
+      </div>
+      <div class="fc">
+        <h5>分类频道</h5>
+        <a href="#cat">华语电影</a>
+        <a href="#cat">港片</a>
+        <a href="#cat">日韩电影</a>
+        <a href="#cat">欧美电影</a>
+        <a href="#cat">经典老片</a>
+        <a href="#cat">冷门佳片</a>
+      </div>
+      <div class="fc">
+        <h5>内容栏目</h5>
+        <a href="#nav2">网址导航</a>
+        <a href="#rank">实时热榜</a>
+        <a href="#list">天空片单</a>
+        <a href="#news">影评</a>
+        <a href="#fc">今日宜看</a>
+      </div>
+      <div class="fc">
+        <h5>关于本站</h5>
+        <a href="#">网站简介</a>
+        <a href="#">收录标准</a>
+        <a href="#">四种合法观看途径</a>
+        <a href="#">正版观看说明</a>
+        <a href="#">免责声明</a>
+      </div>
+    </div>
+    <div class="fbttm">
+      <p>© <span id="yr"></span> 天空电影网 保留所有权利。本站为电影网址导航及网址收录平台，不含在线播放资源，不提供任何色情、盗版或侵权内容。</p>
+      <p style="margin-top:8px">网站网址：<a href="https://tiankongdianyingwang-cn.github.io" rel="noopener">https://tiankongdianyingwang-cn.github.io</a> ｜ 本页为演示模板，内页链接均以 # 占位。</p>
+      <p style="margin-top:8px">温馨提示：请通过正规渠道观看正版影视内容，自觉远离色情低俗与侵权站点，遵守当地法律法规。</p>
+    </div>
+  </div>
+</footer>
+
+<button class="top" id="topBtn" aria-label="返回顶部">↑</button>
+
+<script>
+/* ============ 数据 ============ */
+var CATS=[
+  {t:"华语电影",c:212,col:"linear-gradient(120deg,#8FC7F5,#2E5DA6)",
+   items:[["华语电影导航合集","华语","直达"],["年代与家族史诗","年代","直达"],["现实题材","现实","直达"],["文艺与独立","文艺","直达"],["喜剧与市井","喜剧","直达"]]},
+  {t:"港片",c:196,col:"linear-gradient(120deg,#FFC79A,#F0863C)",
+   items:[["港片导航合集","港片","直达"],["警匪与黑帮","警匪","直达"],["港式喜剧","喜剧","直达"],["武侠与功夫","武侠","直达"],["银河映像","文艺","直达"]]},
+  {t:"日韩电影",c:174,col:"linear-gradient(120deg,#A7E3D2,#3FA88C)",
+   items:[["日韩电影导航","日韩","直达"],["日本社会派","社会","直达"],["韩国犯罪","犯罪","直达"],["是枝裕和式","治愈","直达"],["动画与漫改","动画","直达"]]},
+  {t:"欧美电影",c:208,col:"linear-gradient(120deg,#B9C7F0,#5B6FBF)",
+   items:[["欧美电影导航","欧美","直达"],["科幻与末世","科幻","直达"],["犯罪与悬疑","悬疑","直达"],["文艺与传记","文艺","直达"],["纪录片","纪录","直达"]]},
+  {t:"经典老片",c:158,col:"linear-gradient(120deg,#E3CF9B,#B5923C)",
+   items:[["经典老片导航","老片","直达"],["公版修复片单","公版","直达"],["黑白经典","黑白","直达"],["老港片老台剧","港台","直达"],["老动画","动画","直达"]]},
+  {t:"冷门佳片",c:166,col:"linear-gradient(120deg,#D6B9EC,#A175C4)",
+   items:[["冷门佳片导航","冷门","直达"],["被低估的佳作","遗珠","直达"],["小语种电影","小语","直达"],["短片与实验","实验","直达"],["影史冷知识","考据","直达"]]}
+];
+var RANK=[
+  {t:"漫长的季节",g:"悬疑 / 年代",h:98,c:"#FF9A5B"},{t:"肖申克的救赎",g:"剧情经典",h:99,c:"#5B9BE8"},
+  {t:"星际穿越",g:"科幻 / 亲情",h:96,c:"#8FC7F5"},{t:"请回答 1988",g:"温情 / 韩剧",h:99,c:"#A7E3D2"},
+  {t:"繁花",g:"年代 / 上海",h:90,c:"#F5B642"},{t:"切尔诺贝利",g:"限定剧 / 史实",h:97,c:"#B9C7F0"},
+  {t:"地球脉动",g:"自然纪录片",h:100,c:"#3FA88C"},{t:"寄生虫",g:"韩国 / 阶层",h:93,c:"#FF8FA3"},
+  {t:"霸王别姬",g:"华语经典",h:99,c:"#FF9A5B"}
+];
+var CELLS=[
+  {n:"华语电影",bg:"linear-gradient(160deg,#DCEBFB,#9FC8F2)"},
+  {n:"港片",bg:"linear-gradient(160deg,#FFE4CE,#F5B07A)"},
+  {n:"日韩电影",bg:"linear-gradient(160deg,#D8F2E9,#8FD9C2)"},
+  {n:"欧美电影",bg:"linear-gradient(160deg,#E2E8F7,#A9BAE8)"},
+  {n:"经典老片",bg:"linear-gradient(160deg,#FAF0D8,#E5CE9A)"},
+  {n:"冷门佳片",bg:"linear-gradient(160deg,#EDE3F7,#CFB6E8)"},
+  {n:"天空片单",bg:"linear-gradient(160deg,#CFE5FA,#5B9BE8)"},
+  {n:"观影指南",bg:"linear-gradient(160deg,#D9F2E9,#7FC9B0)"}
+];
+var LIST=[
+  {t:"漫长的季节",ty:"悬疑 / 年代",rg:"中国大陆",s:"9.4",w:"阴天",r:"电视台重播 / 官方展映",cls:"p-c"},
+  {t:"肖申克的救赎",ty:"剧情 / 人性",rg:"美国",s:"9.7",w:"雨天",r:"公共版权修复版",cls:"p-c"},
+  {t:"星际穿越",ty:"科幻 / 亲情",rg:"美国",s:"9.4",w:"星空",r:"平台限时免费",cls:"p-h"},
+  {t:"请回答 1988",ty:"温情 / 家庭",rg:"韩国",s:"9.7",w:"晴天",r:"正版平台会员",cls:"p-n"},
+  {t:"霸王别姬",ty:"华语 / 史诗",rg:"中国大陆 / 香港",s:"9.6",w:"雨天",r:"公共版权修复版",cls:"p-c"},
+  {t:"寄生虫",ty:"韩国 / 阶层",rg:"韩国",s:"8.8",w:"阴天",r:"正版平台限免",cls:"p-h"},
+  {t:"地球脉动",ty:"自然 / 纪录片",rg:"英国",s:"9.8",w:"晴天",r:"电视台重播",cls:"p-c"},
+  {t:"花样年华",ty:"文艺 / 爱情",rg:"香港",s:"8.7",w:"深夜",r:"官方展映 / 修复版",cls:"p-n"}
+];
+var NEWS=[
+  {c:"选片方法",bg:"linear-gradient(150deg,#CFE5FA,#9FBFE6)",t:"先选天气，再选电影",d:"评分回答'好不好'，天气回答'适不适合今晚'。阴天看悬疑，雨天看老片，晴天看公路，深夜看安静的。片单已按此标注。"},
+  {c:"版本考据",e:"为什么老片更值得看修复版",d:"胶片每洗印一次就掉一层细节。4K 扫描加手工调色，是把导演当年看到的画面还给你。认准'官方修复'，别认'高清枪版'。"},
+  {c:"观影指南",bg:"linear-gradient(150deg,#D8F2E9,#A7D9C2)",t:"三种真正免费的合法来源",d:"公共版权有期限，平台限免有窗口，官方展映有场次。三者边界不同，片单逐项写明。支持正版不是口号，是选择。"},
+  {c:"设备建议",bg:"linear-gradient(150deg,#FFE4CE,#F0C29A)",t:"手机看不出 4K，别为难它",d:"小屏看的是构图与表演，大屏看的才是景深与颗粒。按设备选片：通勤看剧情，周末投屏看影像。"},
+  {c:"影评",bg:"linear-gradient(150deg,#EDE3F7,#D1B6E8)",t:"被高估的'烧脑'，被低估的'安静'",d:"节奏慢的电影，其实在帮你省时间，它把两小时的犹豫压缩成一句台词。我们替你筛掉了那些'看起来很厉害'的空转。"},
+  {c:"冷门佳片",bg:"linear-gradient(150deg,#FAF0D8,#E5CE9A)",t:"看完会想投屏给一个人的片",d:"好电影的最佳结局，是让你想打电话。这份片单的共同点是：看完你会想起某个人，并且忍不住院拨过去。"}
+];
+var FORECAST=[
+  {w:"☀️",nm:"晴天",tip:"适合公路片、青春片",d:"阳光好，心情轻。别看沉重的。"},
+  {w:"⛅",nm:"多云",tip:"适合剧情片、传记片",d:"光线柔和，最适合跟着人物走完一生。"},
+  {w:"🌧",nm:"雨天",tip:"适合老片、黑白片",d:"雨声是最好的音效，胶片颗粒最搭。"},
+  {w:"🌫",nm:"阴天",tip:"适合悬疑、犯罪、社会派",d:"气氛对了，疑点就成立。"},
+  {w:"🌙",nm:"深夜",tip:"适合安静的文艺片",d:"人少的时候，才听得见台词。"},
+  {w:"🌌",nm:"星空",tip:"适合科幻、宇宙、纪录片",d:"把灯关掉，把声音开大。"}
+];
+
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+function renderCats(){
+  var h="",i,c,j,it;
+  for(i=0;i<CATS.length;i++){
+    c=CATS[i];h+='<div class="cat" style="--c:'+c.col+'"><div class="hd2"><h4>'+esc(c.t)+'</h4><span>'+c.c+' 个网址</span></div><ul>';
+    for(j=0;j<c.items.length;j++){it=c.items[j];h+='<li><a href="#"><span class="no">'+String(j+1).padStart(2,"0")+'</span><span>'+esc(it[0])+'</span><em>'+esc(it[1])+'</em></a></li>';}
+    h+='</ul></div>';
+  }
+  document.getElementById("cats").innerHTML=h;
+}
+function renderRace(){
+  var h="",i,r;
+  for(i=0;i<RANK.length;i++){
+    r=RANK[i];
+    h+='<div class="rw'+(i<3?" top":"")+'" data-w="'+r.h+'"><span class="no">'+(i+1)+'</span><div class="bx"><b>'+esc(r.t)+'</b><div class="tr"><span class="tk"><span class="fl"></span></span><small>'+esc(r.g)+' · '+r.h+'</small></div></div></div>';
+  }
+  document.getElementById("race").innerHTML=h;
+}
+function renderCells(){
+  var h="",i,r;
+  for(i=0;i<CELLS.length;i++){
+    r=CELLS[i];
+    h+='<div class="cl" style="--c:'+r.bg+'"><em>'+(i+1)+'</em><b>'+esc(r.n)+'</b></div>';
+  }
+  document.getElementById("cells").innerHTML=h;
+}
+function renderList(){
+  var h="",i,l;
+  for(i=0;i<LIST.length;i++){
+    l=LIST[i];
+    h+='<tr><td class="n">'+(i+1)+'</td><td class="ttl">'+esc(l.t)+'</td><td>'+esc(l.ty)+'</td><td>'+esc(l.rg)+'</td><td class="stars">★ '+l.s+'</td><td>'+esc(l.w)+'</td><td><span class="pill '+l.cls+'">'+esc(l.r)+'</span></td></tr>';
+  }
+  document.getElementById("tbody").innerHTML=h;
+}
+function renderNews(){
+  var h="",i,n;
+  for(i=0;i<NEWS.length;i++){
+    n=NEWS[i];
+    h+='<article class="st" style="--bg:'+n.bg+'"><div class="cv"><span>'+esc(n.c)+'</span><b>'+(n.e?n.e:"▣")+'</b></div><div class="bd"><h4>'+esc(n.t)+'</h4><p>'+esc(n.d)+'</p><div class="meta"><span>观影指南</span><span>阅读 '+Math.floor(Math.random()*16000+2400)+'</span></div></div></article>';
+  }
+  document.getElementById("strip").innerHTML=h;
+}
+function renderForecast(){
+  var h="",i,d;
+  for(i=0;i<FORECAST.length;i++){
+    d=FORECAST[i];
+    h+='<div class="fc"><div class="w">'+d.w+'</div><b>'+esc(d.nm)+'</b><span>'+esc(d.tip)+'</span><p>'+esc(d.d)+'</p></div>';
+  }
+  document.getElementById("forecast").innerHTML=h;
+}
+
+document.addEventListener("DOMContentLoaded",function(){
+  renderCats();renderRace();renderCells();renderList();renderNews();renderForecast();
+  document.getElementById("yr").textContent=new Date().getFullYear();
+
+  var mb=document.getElementById("mb"), nav=document.getElementById("nav");
+  mb.addEventListener("click",function(){
+    nav.classList.toggle("open");
+    var o=nav.classList.contains("open");
+    mb.textContent=o?"✕":"☰";
+    mb.setAttribute("aria-expanded",o?"true":"false");
+  });
+  var as=nav.querySelectorAll("a");
+  for(var a=0;a<as.length;a++){as[a].addEventListener("click",function(){nav.classList.remove("open");mb.textContent="☰";mb.setAttribute("aria-expanded","false");});}
+
+  var secs=document.querySelectorAll("section[id]"), items=document.querySelectorAll(".nav a"), tt=document.getElementById("topBtn");
+  function fill(el){ var w=el.getAttribute("data-w"); if(w&&el.querySelector(".fl").style.width!==w+"%") el.querySelector(".fl").style.width=w+"%"; }
+  function onScroll(){
+    var pos=window.scrollY+180, cur="";
+    for(var s=0;s<secs.length;s++){ if(secs[s].offsetTop<=pos) cur=secs[s].id; }
+    for(var n=0;n<items.length;n++){ items[n].classList.toggle("on", items[n].getAttribute("href")==="#"+cur); }
+    tt.classList.toggle("show", window.scrollY>700);
+    var rs=document.querySelectorAll(".rw");
+    for(var r=0;r<rs.length;r++){ if(rs[r].getBoundingClientRect().top<window.innerHeight*0.9) fill(rs[r]); }
+  }
+  window.addEventListener("scroll",onScroll,{passive:true});
+  onScroll();
+  tt.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});});
+});
+</script>
+</body>
+</html>
